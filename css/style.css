@@ -1,1 +1,18 @@
+@font-face {
+    font-family: 'digitalDigits';
+    src: url('/font/SUBWT___.ttf') format('truetype');
+}
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#lcd {
+    font-family: 'digitalDigits';
+    font-size: 44px;
+    color: lime;
+    background-color: black;
+    padding: 4px
+}
