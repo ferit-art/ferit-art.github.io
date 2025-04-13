@@ -1,36 +1,45 @@
 @font-face {
     font-family: 'digitalDigits';
-    src: url('/font/SUBWT___.ttf') format('truetype');
+    src: url('../font/SUBWT___.ttf') format('truetype');
 }
   
 body {
-    font-family: 'digitalDigits', Arial, sans-serif;
+    font: bolder;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background-color: black;
 }
   
 #keyBoard {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 16px;
-    padding: 16px;
+    display: grid; /* Enables the grid layout */
+    grid-template-columns: repeat(4, 1fr); /* Adjusts the number of columns */
+    padding: 5px;
+    width: 80%; 
+    margin: 0 auto; /* Centers horizontally */
 }
   
 input {
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    border-radius: 8px;
+    background-color: black;
+    color: rgb(226, 226, 226); 
+    padding-block: 20px;
     font-size: 1.2rem;
+    display: block; 
+    width: 80%; 
+    margin: 5px auto; /* Centers horizontally */
+    border: 0.1px solid yellow; /* Adds a green border */
+    border-radius: 5px; /* Optional: Rounds the corners */
+    font-family: 'digitalDigits', Arial, sans-serif;
 }
 
 button {
-    background-color: #4CAF50;
-    color: white;
+    background-color: rgb(238, 236, 236);
+    color: black;
     text-align: center;
     padding: 20px;
     border-radius: 8px;
-    font-size: 1.2rem;
+    font-size: 2rem;
+}
+
+.action, #comma, #enter, #clear  { /* Class for action buttons(meaning + - * and /)*/
+    color: lightseagreen; 
 }
