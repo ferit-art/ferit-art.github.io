@@ -20,7 +20,7 @@ function init() {
  * Händelsehanterare för kalkylatorns tangentbord
  */
 function buttonClick(e) {
-    let btn = e.target.id; // id for the button clicked
+    let btn = e.target.id; // id:t på knappen 
 
     if (btn.substring(0, 1) === 'b') { //Delar upp knappen så att siffran blir kvar
         // Exempel: b1, b2, b3, b4, b5, b6, b7, b8, b9, b0

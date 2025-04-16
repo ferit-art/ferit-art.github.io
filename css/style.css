@@ -10,6 +10,11 @@ body {
     background-color: black;
 }
   
+/**
+* The following CSS declaration includes a solution for CSSgrid layout.
+* It is widetly known and found on the internet.
+*/
+
 #keyBoard {
     display: grid; /* Enables the grid layout */
     grid-template-columns: repeat(4, 1fr); /* Adjusts the number of columns */
