@@ -12,7 +12,7 @@ let isComma = false; // Kollar om decimaltecken är inlagt
 
 function init() {
     lcd = document.getElementById('lcd');
-    let keyBoard = document.getElementById('keyBoard')
+    keyBoard = document.getElementById('keyBoard')
     keyBoard.onclick = buttonClick;
 }
 
@@ -27,13 +27,13 @@ function buttonClick(e) {
         // b1 ger 1, b2 ger 2 osv.
         let digit = btn.substring(1, 2);
         addDigit(digit);
-    } else if (btn === 'comma') { // Decimal point
+    } else if (btn === 'comma') { // Decimaltecken
         addComma();
-    } else if (btn === 'clear') { // Clear button
+    } else if (btn === 'clear') { // Clear knappen
         memClear();
-    } else if (btn === 'enter') { // Equals button
+    } else if (btn === 'enter') { // Enter knappen
         calculate();
-    } else { // Operator buttons (+, -, *, /)
+    } else { // Operator knapparna, exempel: add, sub, mul, div
         let operator = btn;
         setOperator(operator);
     }
@@ -56,11 +56,11 @@ function addDigit(digit) {
 function addComma() {
     if (!isComma) {
         if (lcd.value === '') {
-            lcd.value = '0.'; // Start with 0 if empty
+            lcd.value = '0.'; // Börjar med 0. om inget fanns
         } else {
-            lcd.value += '.'; // Append decimal point
+            lcd.value += '.'; // Tillägger decimaltecken
         }
-        isComma = true; // Prevent multiple commas
+        isComma = true; // Sätter flaggan till true så att det inte går att lägga till fler decimaltecken
     }
 }
 
@@ -69,9 +69,9 @@ function addComma() {
  * +, -, *, /
  */
 function setOperator(operator) {
-    memory = parseFloat(lcd.value); // Store current value in memory
-    arithmetic = operator; // Store the operator
-    clearLCD(); // Clear display for the next input
+    memory = parseFloat(lcd.value); // Lagrar värdet från displayen i minnet
+    arithmetic = operator; // lagrar operatorn
+    clearLCD(); // Rensar displayen för nästa beräkning
 }
 
 /**
@@ -79,32 +79,31 @@ function setOperator(operator) {
  */
 function calculate() {
     if (arithmetic && lcd.value !== '') {
-        let currentValue = parseFloat(lcd.value); // Get the current value
+        let currentValue = parseFloat(lcd.value); // Hämtar värdet från displayen
         let result;
 
         switch (arithmetic) {
-            case 'add':
+            case 'add': // '+'
                 result = memory + currentValue;
                 break;
-            case 'sub':
+            case 'sub': // '-'
                 result = memory - currentValue;
                 break;
-            case 'mul':
+            case 'mul': // '*'
                 result = memory * currentValue;
                 break;
-            case 'div':
+            case 'div': // '/'
                 result = currentValue !== 0 ? memory / currentValue : 'Error'; // Handle division by zero
                 break;
         }
 
-        lcd.value = result; // Display the result
-        memory = result; // Store result in memory for further calculations
-        arithmetic = null; // Reset operator
-        isComma = false; // Reset comma flag
+        lcd.value = result; 
+        memory = result; // Lagrar resultatet i minnet för nästa beräkning
+        arithmetic = null; // Återställer operatorn
+        isComma = false; // Återställer decimaltecken 
     }
 }
 
-/** Rensar display */
 function clearLCD() {
     lcd.value = '';
     isComma = false;
